@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Formulario } from "./components/Formulario";
 import { Header } from "./components/Header";
 import { Listado } from "./components/Listado";
+require("dotenv").config();
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
 
   useEffect( () => {
     const consultarAPI = async () => {
-      const apiKey = "fd2663e7434d43d880f154216cc6f6e2"
+      const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://newsapi.org/v2/top-headlines?country=ar&category=${categoria}&apiKey=${apiKey}`
     
       const respuesta = await fetch(url);
